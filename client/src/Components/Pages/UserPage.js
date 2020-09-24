@@ -11,7 +11,7 @@ const UserPage = ({match}) => {
     const id = match.params.id;
 
     useEffect(() => {
-        async function getParty() {
+        (async () => {
             try {
                 const partyResponse = await fetch(`/${id}`);
                 const partyResponseData = await partyResponse.json();
@@ -20,8 +20,7 @@ const UserPage = ({match}) => {
                 setPartyData( { error: { message: err.message } } );
             }
             
-        }
-        getParty();
+        })();
     }, []);
 
     const renderContent = () => {

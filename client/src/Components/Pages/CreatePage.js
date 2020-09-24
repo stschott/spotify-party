@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 const CreatePage = ({history}) => {
 
     useEffect(() => {
-        async function createParty() {
+        (async () => {
             try {
                 const urlParams = new URLSearchParams(window.location.search);
                 const code = urlParams.get('code');
@@ -14,8 +14,7 @@ const CreatePage = ({history}) => {
             } catch (err) {
                 console.log(err);
             }
-        } 
-        createParty();
+        })(); 
     }, []);
 
     return (
